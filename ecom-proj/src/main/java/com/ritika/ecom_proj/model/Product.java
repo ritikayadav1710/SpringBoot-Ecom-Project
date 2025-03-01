@@ -1,21 +1,20 @@
 package com.ritika.ecom_proj.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Date;
 
+@Getter
+@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Table(name="product")
 public class Product {
 
 
@@ -23,11 +22,12 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String desc;
+    private String description;
     private String brand;
     private BigDecimal price;
     private String category;
-    private LocalDate release_date;
+    @Column(name = "release_date")
+    private LocalDate releaseDate;
     private boolean available;
     private int quantity;
 }

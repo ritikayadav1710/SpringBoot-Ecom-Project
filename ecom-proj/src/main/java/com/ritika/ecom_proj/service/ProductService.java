@@ -14,15 +14,13 @@ public class ProductService {
     @Autowired
     private ProductRepo repo;
 
-    @PostConstruct
-    public void testDataLoading() {
-        List<Product> products = repo.findAll();
-        System.out.println("Products count: " + products.size());
-        products.forEach(System.out::println);
-    }
-
     public List<Product> getAllProducts() {
         return repo.findAll();
     }
-
+    @PostConstruct
+    public void testDataLoading(){
+        List<Product> products=repo.findAll();
+        System.out.println("Products count:"+products.size());
+        products.forEach(System.out::println);
+    }
 }
